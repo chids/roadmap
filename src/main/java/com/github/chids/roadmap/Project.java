@@ -79,10 +79,6 @@ public class Project extends Graph {
         }
     }
 
-    public void addNodes(final Map<String, Node> nodes) {
-        this.nodes.putAll(nodes);
-    }
-
     public void addSection(final Section section,
                            final Map<String, Node> nodes,
                            final Multimap<String, String> dependencies) {
