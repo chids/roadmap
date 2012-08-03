@@ -1,4 +1,6 @@
 name: "Project Name"
+# Direction is either TB (top-bottom) or LR (left-right)
+direction: TB
 sections:
     - section:
         name: dev:development

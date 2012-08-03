@@ -25,18 +25,18 @@ public class Project extends Graph {
     @NotNull
     private String name;
 
+    enum Layout {
+        LR, TB
+    }
+
+    private Layout direction = Layout.LR;
+
     @Valid
     @NotNull
     private List<SectionContainer> sections;
 
     private final Map<String, Node> nodes = new HashMap<String, Node>();
     private final Multimap<String, String> dependencies = ArrayListMultimap.create();
-
-    public Project() {
-        // RankDir.LR -> "lr" and it needs to be "LR"
-        // at least for GraphViz on OS X. Boo. Hoo.
-        attr("rankdir", "LR");
-    }
 
     public void setSections(final List<SectionContainer> sections) {
         for(final SectionContainer container : sections) {
@@ -50,6 +50,10 @@ public class Project extends Graph {
         this.name = name;
     }
 
+    public void setDirection(final String direction) {
+        this.direction = Layout.valueOf(direction);
+    }
+
     @Override
     public String toString() {
         return this.name + '[' + this.sections + ']';
@@ -58,6 +62,9 @@ public class Project extends Graph {
     @Override
     public void writeTo(final OutputStream out) {
         linkDependencies();
+        // RankDir.LR -> "lr" and it needs to be "LR"
+        // at least for GraphViz on OS X. Boo. Hoo.
+        attr("rankdir", this.direction.name());
         try {
             // Commence butt ugly subgraph cluster hack
             final ByteArrayOutputStream buffer = new ByteArrayOutputStream();
