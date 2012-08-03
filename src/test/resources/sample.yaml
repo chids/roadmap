@@ -1,0 +1,24 @@
+name: "Project Name"
+sections:
+    - section:
+        name: dev:development
+        items:
+            - java6:x
+            - maven:x
+            - jenkins
+            - java7
+            - sonar
+    - section:
+        name: infra:infrastructure
+        items:
+            - scp:x
+            - ansible
+                -> dev:maven
+                -> meta:deft
+            - chef
+    - section:
+        name: meta:process
+        items:
+            - roadmap:-
+            - deft
+            - jira
