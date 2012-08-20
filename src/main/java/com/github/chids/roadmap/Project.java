@@ -5,7 +5,9 @@ import static com.google.common.collect.Maps.newHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -30,6 +32,7 @@ public class Project extends Graph {
         LR, TB
     }
 
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private Layout direction = Layout.LR;
 
     @Valid
@@ -47,7 +50,7 @@ public class Project extends Graph {
     }
 
     public void setName(final String name) {
-        attr(Attribute.LABEL, name);
+        attr(Attribute.LABEL, name + " as of " + dateFormat.format(new Date()));
         this.name = name;
     }
 
