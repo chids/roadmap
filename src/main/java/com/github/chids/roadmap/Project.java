@@ -1,10 +1,11 @@
 package com.github.chids.roadmap;
 
+import static com.google.common.collect.Maps.newHashMap;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -35,7 +36,7 @@ public class Project extends Graph {
     @NotNull
     private List<SectionContainer> sections;
 
-    private final Map<String, Node> nodes = new HashMap<String, Node>();
+    private final Map<String, Node> nodes = newHashMap();
     private final Multimap<String, String> dependencies = ArrayListMultimap.create();
 
     public void setSections(final List<SectionContainer> sections) {
