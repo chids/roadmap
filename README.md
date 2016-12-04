@@ -1,3 +1,13 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+
+If you find this interesting you might want to check out:
+
+* [Bastardised kanban](https://speakerdeck.com/chids/bastardised-kanban), a presentation on the subject from 2015
+* http://github.com/plan3/stoneboard/, a slightly less outdated, Github powered, take on this
+
+---
+
 Roadmap
 =======
 
